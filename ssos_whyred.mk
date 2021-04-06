@@ -20,7 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o.mk)
 
 # Enable updating of APEXes
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Inherit from whyred device
 $(call inherit-product, device/xiaomi/whyred/device.mk)
@@ -28,11 +28,10 @@ $(call inherit-product, device/xiaomi/whyred/device.mk)
 # Inherit from custom vendor
 $(call inherit-product-if-exist, vendor/MiuiCamera/config.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/arrow/config/common.mk)
+# Inherit ShapeShiftOS product configuration
+$(call inherit-product, vendor/ssos/config/common_full_phone.mk)
 
-DEVICE_MAINTAINER := Sreekanth
-PRODUCT_NAME := arrow_whyred
+PRODUCT_NAME := ssos_whyred
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := whyred
 PRODUCT_MANUFACTURER := Xiaomi
@@ -52,6 +51,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 TARGET_VENDOR := Xiaomi
 IS_PHONE := true
-TARGET_BOOT_ANIMATION_RES := 1080
+USE_GAPPS := true
 TARGET_GAPPS_ARCH := arm64
 TARGET_SCREEN_DENSITY := 440
+
+# Inherit ShapeShiftOS Official build stuff.
+SSOS_BUILD_TYPE := Predator-Edition
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_BOOT_ANIMATION_RES := 1080
+
+PRODUCT_PRODUCT_PROPERTIES += \
+  ro.ssos.cpu=SDM636
