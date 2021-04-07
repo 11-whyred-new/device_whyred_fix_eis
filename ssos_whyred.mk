@@ -50,12 +50,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=google/redfin/redfin:11/RQ2A.210405.005/7181113:user/release-keys
 
 TARGET_VENDOR := Xiaomi
+USE_GAPPS := true
 IS_PHONE := true
 TARGET_GAPPS_ARCH := arm64
 TARGET_SCREEN_DENSITY := 440
 
-# Inherit ShapeShiftOS Official build stuff.
-SSOS_BUILD_TYPE := Predator-Edition
+# Inherit ShapeShiftOS UNOfficial build stuff.
+SSOS_BUILD_TYPE := UNOFFICIAL
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_BOOT_ANIMATION_RES := 1080
 
