@@ -25,8 +25,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Inherit from whyred device
 $(call inherit-product, device/xiaomi/whyred/device.mk)
 
-# Inherit from custom vendor
-$(call inherit-product-if-exist, vendor/MiuiCamera/config.mk)
+# MiuiCamera
+$(call inherit-product, vendor/MiuiCamera/config.mk)
 
 # Inherit ShapeShiftOS product configuration
 $(call inherit-product, vendor/ssos/config/common_full_phone.mk)

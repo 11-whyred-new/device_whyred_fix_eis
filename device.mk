@@ -530,6 +530,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libavservices_minijail_vendor
 
+# Watermark
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/MIUI_DualCamera_watermark.png:$(TARGET_COPY_OUT_VENDOR)/etc/MIUI_DualCamera_watermark.png
+
 # RCS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
