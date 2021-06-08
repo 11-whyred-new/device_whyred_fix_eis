@@ -28,10 +28,20 @@ $(call inherit-product, device/xiaomi/whyred/device.mk)
 # MiuiCamera
 $(call inherit-product, vendor/MiuiCamera/config.mk)
 
-# Inherit ShapeShiftOS product configuration
-$(call inherit-product, vendor/ssos/config/common_full_phone.mk)
 
-PRODUCT_NAME := ssos_whyred
+# DotOS Properties
+TARGET_INCLUDE_WIFI_EXT := true
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_INCLUDE_LIVE_WALLPAPERS := false
+TARGET_INCLUDE_STOCK_ARCORE := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_INCLUDE_PIXEL_CHARGER := true
+TARGET_GAPPS_ARCH := arm64
+
+# Inherit ShapeShiftOS product configuration
+$(call inherit-product, vendor/dot/config/common.mk)
+
+PRODUCT_NAME := dot_whyred
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := whyred
 PRODUCT_MANUFACTURER := Xiaomi
@@ -50,15 +60,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=xiaomi/whyred/whyred:8.1.0/OPM1.171019.011/V9.5.11.0.OEIMIFA:user/release-keys
 
 TARGET_VENDOR := Xiaomi
-USE_GAPPS := true
-IS_PHONE := true
-TARGET_GAPPS_ARCH := arm64
 TARGET_SCREEN_DENSITY := 440
 
-# Inherit ShapeShiftOS UNOfficial build stuff.
-SSOS_BUILD_TYPE := UNOFFICIAL
-TARGET_FACE_UNLOCK_SUPPORTED := true
-TARGET_BOOT_ANIMATION_RES := 1080
-
-PRODUCT_PRODUCT_PROPERTIES += \
-  ro.ssos.cpu=SDM636
